@@ -20,8 +20,8 @@ namespace PandoLogic.Infrastructure.Services
 
         public async Task<IEnumerable<JobTitleResponseModel>> GetAllJobTitlesAsync()
         {
-            var jobTitlesEntities = await GetAllEntitiesAsync();
-            return Mapper.Map<IEnumerable<JobTitleResponseModel>>(jobTitlesEntities);
+            var jobTitlesFromDb = await GetAllEntitiesAsync();
+            return Mapper.Map<IEnumerable<JobTitleResponseModel>>(jobTitlesFromDb);
         }
     }
 }

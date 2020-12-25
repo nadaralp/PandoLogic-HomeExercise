@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using PandoLogic.Core;
-using PandoLogic.Core.Entities;
+﻿using PandoLogic.Core.Entities;
 using PandoLogic.ServicesCore.Models.JobTitles;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace PandoLogic.ServicesCore.Services
 {
