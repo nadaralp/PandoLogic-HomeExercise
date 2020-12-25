@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PandoLogic.API", "PandoLogic.API\PandoLogic.API.csproj", "{CD06DA82-12EC-425D-A0AD-8A94037FFE96}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PandoLogic.Core", "PandoLogic.Core\PandoLogic.Core.csproj", "{5D65C45E-D5BE-4746-8FC2-12CD924450DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PandoLogic.ServicesCore", "PandoLogic.ServicesCore\PandoLogic.ServicesCore.csproj", "{CD9E4472-100B-4D84-8581-AE3FAD1286BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PandoLogic.Infrastructure", "PandoLogic.Infrastructure\PandoLogic.Infrastructure.csproj", "{E55E2F39-B45E-43A8-A188-D117FC31A191}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CD06DA82-12EC-425D-A0AD-8A94037FFE96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD06DA82-12EC-425D-A0AD-8A94037FFE96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD06DA82-12EC-425D-A0AD-8A94037FFE96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD06DA82-12EC-425D-A0AD-8A94037FFE96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D65C45E-D5BE-4746-8FC2-12CD924450DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D65C45E-D5BE-4746-8FC2-12CD924450DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D65C45E-D5BE-4746-8FC2-12CD924450DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D65C45E-D5BE-4746-8FC2-12CD924450DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD9E4472-100B-4D84-8581-AE3FAD1286BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD9E4472-100B-4D84-8581-AE3FAD1286BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD9E4472-100B-4D84-8581-AE3FAD1286BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD9E4472-100B-4D84-8581-AE3FAD1286BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E55E2F39-B45E-43A8-A188-D117FC31A191}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E55E2F39-B45E-43A8-A188-D117FC31A191}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E55E2F39-B45E-43A8-A188-D117FC31A191}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E55E2F39-B45E-43A8-A188-D117FC31A191}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {87BA8D64-8294-4AEE-9FD3-83BE141F9D9B}
+	EndGlobalSection
+EndGlobal
