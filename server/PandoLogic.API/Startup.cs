@@ -20,6 +20,8 @@ namespace PandoLogic.API
 {
     public class Startup
     {
+        private readonly string CorsPolicy = "CorsPolicy";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -34,6 +36,19 @@ namespace PandoLogic.API
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "PandoLogic.API", Version = "v1" });
+            });
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy(CorsPolicy,
+                    builder =>
+                    {
+                        var allowedCors = Configuration.GetSection("CorsOrigins").Get<IEnumerable<string>>();
+                        //var allowedCors = "http://localhost:3000"
+                        builder.WithOrigins(allowedCors.ToArray());
+                        builder.AllowAnyMethod();
+                        builder.AllowAnyHeader();
+                    });
             });
 
             services.AddEntityFrameworkContexts(Configuration);
@@ -52,6 +67,8 @@ namespace PandoLogic.API
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "PandoLogic.API v1"));
             }
+
+            app.UseCors(CorsPolicy);
 
             app.UseHttpsRedirection();
 
