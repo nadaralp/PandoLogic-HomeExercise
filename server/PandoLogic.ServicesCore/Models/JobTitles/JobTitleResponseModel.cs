@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PandoLogic.Core
+namespace PandoLogic.ServicesCore.Models.JobTitles
 {
-    public class JobTitle
+    public class JobTitleResponseModel
     {
         public int JobTitleId { get; set; }
         public string JobTitleName { get; set; }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using PandoLogic.Core;
+using PandoLogic.Core.Entities;
 
 namespace PandoLogic.Infrastructure.EntityFramework
 {

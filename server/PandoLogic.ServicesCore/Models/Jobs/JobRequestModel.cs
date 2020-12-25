@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace PandoLogic.Core
+namespace PandoLogic.ServicesCore.Models.Jobs
 {
-    public class Job
+    public class JobRequestModel
     {
         public int JobId { get; set; }
         public int JobTitleId { get; set; }

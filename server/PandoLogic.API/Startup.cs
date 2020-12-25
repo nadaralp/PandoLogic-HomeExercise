@@ -11,8 +11,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using PandoLogic.Infrastructure.AutoMapper;
 using PandoLogic.Infrastructure.EntityFramework;
 using PandoLogic.Infrastructure.Repositories;
+using PandoLogic.Infrastructure.Services;
 
 namespace PandoLogic.API
 {
@@ -36,6 +38,9 @@ namespace PandoLogic.API
 
             services.AddEntityFrameworkContexts(Configuration);
             services.AddRepositories();
+
+            services.AddAutoMapperProfiles();
+            services.AddServices();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
