@@ -1,6 +1,6 @@
 #!/bin/bash
 
-docker pull mcr.microsoft.com/mssql/server:2019-CU8-ubuntu-16.04
+docker pull mcr.microsoft.com/mssql/server:2019-latest
 
 echo "Setting up NADAR.A project - PandoLogic"
 echo "removing network if exists..."

@@ -10,6 +10,7 @@ using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using PandoLogic.Infrastructure.AutoMapper;
 using PandoLogic.Infrastructure.EntityFramework;
@@ -23,9 +24,9 @@ namespace PandoLogic.API
         private readonly ILogger<Startup> _logger;
         private readonly string CorsPolicy = "CorsPolicy";
 
-        public Startup(IConfiguration configuration, ILogger<Startup> logger)
+        public Startup(IConfiguration configuration)
         {
-            _logger = logger;
+            _logger = LoggerFactory.Create(b => b.AddConsole()).CreateLogger<Startup>();
             Configuration = configuration;
         }
 
