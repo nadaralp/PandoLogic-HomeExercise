@@ -1,13 +1,19 @@
 version: "3.9"
 services:
   server:
-    image: pandologic-server: nadar
-    ports: 5000:5000
+    image: "pandologic-server:nadar"
+    ports:
+      - 5000:5000
+    depends_on:
+      - sql_client
 
   client:
-    image: pandologic-client:nadar
-    ports: 3000:3000
-    depends_on: server
+    image: "pandologic-client:nadar"
+    ports: 
+      - 3000:3000
+    depends_on:
+      - server
+      - sql_client
 
   sql_client:
     image: mcr.microsoft.com/mssql/server:2019-latest
@@ -15,5 +21,5 @@ services:
       - 1433:1433
     environment:
       - ACCEPT_EULA=Y
-      - SA_PASSWORD=sysadmin123
+      - SA_PASSWORD=sysadmin123!
     

@@ -5,7 +5,8 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [Test_Jobs](
+if not exists (select * from sysobjects where name='Test_Jobs' and xtype='U')
+   CREATE TABLE [Test_Jobs](
 	[JobId] [int] NOT NULL,
 	[JobTitleId] [int] NOT NULL,
 	[CategoryId] [int] NOT NULL,
@@ -20,8 +21,9 @@ CREATE TABLE [Test_Jobs](
 	[JobId] ASC
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
 ) ON [PRIMARY]
-
 GO
+
+SET IDENTITY_INSERT Test_Jobs ON 
 
 
 insert INTO test_jobs(JobId ,JobTitleId ,CategoryId ,City,[State],DescriptionLength,EducationLevel,Clicks,Applicants)  VALUES(1,1,1,'New York','NY',414,1,125,24)
@@ -1025,6 +1027,4 @@ insert INTO test_jobs(JobId ,JobTitleId ,CategoryId ,City,[State],DescriptionLen
 insert INTO test_jobs(JobId ,JobTitleId ,CategoryId ,City,[State],DescriptionLength,EducationLevel,Clicks,Applicants)  VALUES(999,10,3,'Boston','MA',701,3,211,17)
 insert INTO test_jobs(JobId ,JobTitleId ,CategoryId ,City,[State],DescriptionLength,EducationLevel,Clicks,Applicants)  VALUES(1000,10,3,'Boston','MA',670,1,201,41)
 
-
-
-
+SET IDENTITY_INSERT Test_Jobs OFF

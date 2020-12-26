@@ -5,7 +5,8 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [dbo].[Test_JobTitles](
+if not exists (select * from sysobjects where name='Test_JobTitles' and xtype='U')
+	CREATE TABLE [dbo].[Test_JobTitles](
 	[JobTitleId] [int] NOT NULL,
 	[JobTitleName] [nvarchar](max) NOT NULL,
 	[CategoryId] [int] NOT NULL,
@@ -14,9 +15,9 @@ CREATE TABLE [dbo].[Test_JobTitles](
 	[JobTitleId] ASC
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
 ) ON [PRIMARY]
-
 GO
 
+SET IDENTITY_INSERT Test_JobTitles ON 
 
 
 insert INTO Test_JobTitles(JobTitleId,JobTitleName,CategoryId) VALUES (1,'Receptionist',1)
@@ -31,3 +32,4 @@ insert INTO Test_JobTitles(JobTitleId,JobTitleName,CategoryId) VALUES (9,'Enviro
 insert INTO Test_JobTitles(JobTitleId,JobTitleName,CategoryId) VALUES (10,'Field Engineering Technician',3)
 insert INTO Test_JobTitles(JobTitleId,JobTitleName,CategoryId) VALUES (11,'Food Distributor',4)
 
+SET IDENTITY_INSERT Test_JobTitles ON 

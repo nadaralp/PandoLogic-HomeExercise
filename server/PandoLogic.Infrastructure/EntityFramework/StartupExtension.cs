@@ -17,9 +17,8 @@ namespace PandoLogic.Infrastructure.EntityFramework
         public static void AddEntityFrameworkContexts(this IServiceCollection services, IConfiguration configuration)
         {
             string testConnectionString =
-                "Server=localhost,1433;Database=PandoLogic_Nadar;Trusted_Connection=True;user=sa;password=sysadmin123;Persist Security Info=False;Integrated Security=false;Max Pool Size=10000;";
+                "Server=localhost,1433;Database=PandoLogic_Nadar;Trusted_Connection=True;user=sa;password=sysadmin123!;Persist Security Info=False;Integrated Security=false;Max Pool Size=10000;";
 
-            //configuration.GetConnectionString("JobsContext")
             services.AddDbContext<JobsContext>(options =>
                 options.UseSqlServer(testConnectionString));
         }
@@ -33,7 +32,7 @@ namespace PandoLogic.Infrastructure.EntityFramework
                 var context = serviceScope.ServiceProvider.GetRequiredService<JobsContext>();
                 context.Database.EnsureCreated(); // Creates PandoLogic_Nadar
 
-                if (!(TableExistsAndContainsData<Job>(context) || TableExistsAndContainsData<JobTitle>(context)))
+                if (!(TableExistsAndContainsData<Job>(context) && TableExistsAndContainsData<JobTitle>(context)))
                 {
                     logger.LogInformation("One or more tables don't exist {Job};{JobTitle}");
 
@@ -67,8 +66,12 @@ namespace PandoLogic.Infrastructure.EntityFramework
         {
             try
             {
-                var _ = context.Set<TEntity>().Any();
-                return true;
+                if (context.Set<TEntity>().Any())
+                {
+                    return true;
+                }
+
+                return false;
             }
             catch
             {
