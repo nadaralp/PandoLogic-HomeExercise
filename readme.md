@@ -6,6 +6,7 @@ git clone --recurse-submodules https://github.com/nadaralp/PandoLogic-HomeExerci
 
 ### To run the project
 sh machine-setup.sh
+
 *** That will set up docker-compose for you. Feel free to debug anything you like :)
 (You don't have to run npm install, dotnet restore or anything if you don't want)
 
