@@ -20,10 +20,12 @@ namespace PandoLogic.API
 {
     public class Startup
     {
+        private readonly ILogger<Startup> _logger;
         private readonly string CorsPolicy = "CorsPolicy";
 
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, ILogger<Startup> logger)
         {
+            _logger = logger;
             Configuration = configuration;
         }
 
@@ -50,7 +52,7 @@ namespace PandoLogic.API
                     });
             });
 
-            services.AddEntityFrameworkContexts(Configuration);
+            services.AddEntityFrameworkContexts(Configuration, _logger);
             services.AddRepositories();
 
             services.AddAutoMapperProfiles();
@@ -58,7 +60,7 @@ namespace PandoLogic.API
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILogger<Startup> logger)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -75,7 +77,7 @@ namespace PandoLogic.API
 
             app.UseAuthorization();
 
-            app.EnsureJobsContextBeenSeeded(logger);
+            app.EnsureJobsContextBeenSeeded(_logger);
 
             app.UseEndpoints(endpoints =>
             {

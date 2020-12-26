@@ -14,13 +14,12 @@ namespace PandoLogic.Infrastructure.EntityFramework
 {
     public static class StartupExtension
     {
-        public static void AddEntityFrameworkContexts(this IServiceCollection services, IConfiguration configuration)
+        public static void AddEntityFrameworkContexts<T>(this IServiceCollection services, IConfiguration configuration, ILogger<T> logger)
         {
-            string testConnectionString =
-                "Server=localhost,1433;Database=PandoLogic_Nadar;Trusted_Connection=True;user=sa;password=sysadmin123!;Persist Security Info=False;Integrated Security=false;Max Pool Size=10000;";
-
+            string connectionString = configuration.GetConnectionString("JobsContext");
+            logger.LogWarning($"connection string is: {connectionString}");
             services.AddDbContext<JobsContext>(options =>
-                options.UseSqlServer(testConnectionString));
+                options.UseSqlServer(connectionString));
         }
 
         public static void EnsureJobsContextBeenSeeded<T>(this IApplicationBuilder app, ILogger<T> logger)

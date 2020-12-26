@@ -5,21 +5,24 @@ services:
     ports:
       - 5000:5000
     depends_on:
-      - sql_client
+      - "db"
+    restart: on-failure
 
   client:
     image: "pandologic-client:nadar"
     ports: 
       - 3000:3000
-    depends_on:
-      - server
-      - sql_client
-
-  sql_client:
-    image: mcr.microsoft.com/mssql/server:2019-latest
-    ports:
-      - 1433:1433
     environment:
-      - ACCEPT_EULA=Y
-      - SA_PASSWORD=sysadmin123!
+      REACT_APP_ENV: "production"
+    depends_on:
+      - "server"
+    restart: on-failure
+      
+  db:
+    image: "mcr.microsoft.com/mssql/server:2019-CU8-ubuntu-16.04"
+    ports:
+      - "1433:1433"
+    environment:
+      SA_PASSWORD: "Password@12345"
+      ACCEPT_EULA: "Y"
     
