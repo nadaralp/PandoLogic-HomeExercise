@@ -44,7 +44,6 @@ namespace PandoLogic.API
                     builder =>
                     {
                         var allowedCors = Configuration.GetSection("CorsOrigins").Get<IEnumerable<string>>();
-                        //var allowedCors = "http://localhost:3000"
                         builder.WithOrigins(allowedCors.ToArray());
                         builder.AllowAnyMethod();
                         builder.AllowAnyHeader();
@@ -59,7 +58,7 @@ namespace PandoLogic.API
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILogger<Startup> logger)
         {
             if (env.IsDevelopment())
             {
@@ -75,6 +74,8 @@ namespace PandoLogic.API
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.EnsureJobsContextBeenSeeded(logger);
 
             app.UseEndpoints(endpoints =>
             {

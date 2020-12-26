@@ -7,6 +7,7 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="10.1.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="1.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.1">
       <PrivateAssets>all</PrivateAssets>
@@ -22,5 +23,14 @@
   <ItemGroup>
     <ProjectReference Include="..\PandoLogic.Core\PandoLogic.Core.csproj" />
     <ProjectReference Include="..\PandoLogic.ServicesCore\PandoLogic.ServicesCore.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="EntityFramework\CreateTestJobs.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="EntityFramework\CreateTestJobTitles.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>
